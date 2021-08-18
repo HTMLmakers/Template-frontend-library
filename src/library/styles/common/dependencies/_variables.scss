@@ -1,0 +1,36 @@
+// =============================================================================
+// Constants library
+// =============================================================================
+
+// Colors library
+$color-gray-library:          #808080;
+$color-botticelli-library:    #d5daea;
+$color-gallery-library:       #eaeaea;
+
+// Fonts library
+$font-incised-bold: Incised-bold, $secure-fonts;
+$font-geoslab-regular: GeoSlab-regular, $secure-fonts;
+
+// Fonts size library
+$default-font-size-library: 16px;
+
+// =============================================================================
+// Variables library
+// =============================================================================
+
+// Body
+$body-bg-library: $color-white;
+$body-bg-inner-library: $color-white;
+$body-color-library: $color-black;
+$body-font-family-library: $secure-fonts;
+$body-font-size-library: $default-font-size-library;
+
+// Grid Variables
+$enable-grid-classes: true;
+
+//
+// Other
+// -----------------------------------------------------------------------------
+
+// Transition
+$transition: all 0.3s;

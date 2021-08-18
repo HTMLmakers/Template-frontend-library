@@ -1,0 +1,171 @@
+@charset "utf-8";
+
+@import "dependencies";
+@import "common/root";
+
+.page {
+
+  background-color: $color-gray-tertiary;
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: px-to-rem(16px);
+
+    @include media-breakpoint-down(md) {
+      padding: px-to-rem(8px);
+    }
+  }
+
+  &__header {
+    margin-bottom: px-to-rem(16px);
+
+    @include media-breakpoint-down(md) {
+      padding: px-to-rem(8px);
+    }
+  }
+
+  &__add {
+    margin-bottom: px-to-rem(16px);
+
+    @include media-breakpoint-down(md) {
+      padding: px-to-rem(8px);
+    }
+
+    > * {
+      margin-bottom: px-to-rem(16px);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .section-primary {
+      display: flex;
+
+      > * {
+        flex-grow: 1;
+        margin-right: px-to-rem(16px);
+
+        &:last-child {
+          margin-right: auto;
+        }
+      }
+    }
+  }
+}
+
+/*
+.page {
+  $root: &;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: px-to-rem(16px);
+
+    @include media-breakpoint-down(md) {
+      padding: px-to-rem(8px);
+    }
+  }
+
+  &__header {
+    margin-bottom: px-to-rem(16px);
+
+    @include media-breakpoint-down(md) {
+      padding: px-to-rem(8px);
+    }
+  }
+
+  &__add {
+    margin-bottom: px-to-rem(16px);
+
+    @include media-breakpoint-down(md) {
+      padding: px-to-rem(8px);
+    }
+
+    > * {
+      margin-bottom: px-to-rem(16px);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .section-primary {
+      display: flex;
+
+      > * {
+        flex-grow: 1;
+        margin-right: px-to-rem(16px);
+
+        &:last-child {
+          margin-right: auto;
+        }
+      }
+    }
+  }
+}*/
+
+
+.control-bar {
+  $root: ".control-bar";
+  //@include media-breakpoint-down(sm) {}
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /*padding-top: px-to-rem(16px);
+  padding-bottom: px-to-rem(16px);*/
+
+  &__section {
+    display: flex;
+    align-items: center;
+
+    &:first-child {
+      #{$root}__info {
+        margin-left: px-to-rem(16px);
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+
+    &:last-child {
+      #{$root}__info {
+        text-align: right;
+        margin-right: px-to-rem(24px);
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        span {
+          display: block;
+        }
+      }
+    }
+
+    & > * {
+      margin: 0 px-to-rem(8px) 0 0;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__info {
+    @include desc--size($root, "s");
+
+    font-weight: 500;
+    color: $color-gray-primary;
+  }
+}

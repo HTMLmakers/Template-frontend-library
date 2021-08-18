@@ -1,0 +1,361 @@
+/* ==========================================================================
+   Components library
+   ========================================================================== */
+
+/* General styles
+   -------------------------------------------------------------------------- */
+
+.components-library {
+  $root: &;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1920px;
+  min-width: map-get($container-max-widths, xs);
+  margin: 0 auto;
+  padding: 40px 10px;
+  font-size: 16px;
+  font-family: $font-geoslab-regular;
+
+  &--main {
+    justify-content: center;
+    height: inherit;
+
+    #{$root}__header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+  }
+
+  &--fixed {
+    width: 1680px;
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+
+  &__header {
+    width: 100%;
+  }
+
+  &__main {
+    width: 100%;
+  }
+
+  //home page elements
+
+  &__logo {
+    width: 194px;
+    height: auto;
+    margin-bottom: 40px;
+    text-indent: -9999px;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__link-site {
+    color: $color-gray-library;
+    text-decoration: none;
+    transition: $transition;
+
+    &:hover {
+      color: $color-botticelli-library;
+    }
+  }
+
+  //headings
+
+  &__heading {
+    margin: 0;
+    padding: 0;
+    font-family: $font-incised-bold;
+    text-align: left;
+
+    &.h1 {
+      margin-bottom: 8px;
+      font-size: 56px;
+      text-align: center;
+    }
+
+    &.h2 {
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      font-size: 40px;
+      border-bottom: 1px dotted $color-botticelli-library;
+    }
+
+    &.h3 {
+      padding-bottom: 40px;
+      font-size: 32px;
+    }
+
+    &.h4 {
+      position: relative;
+      margin-top: 60px;
+      margin-bottom: 20px;
+      color: silver;
+      font-weight: normal;
+      font-size: 24px;
+      font-family: $secure-fonts;
+      text-align: left;
+
+      span {
+        display: inline-block;
+        padding-right: px-to-rem(6px);
+        background-color: $color-white;
+      }
+
+      &::before {
+        position: absolute;
+        top: 50%;
+        z-index: -1;
+        width: 100%;
+        height: 2px;
+        border-bottom: 2px dotted silver;
+        transform: translateY(-50%);
+        content: "";
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  //main nav
+
+  &__nav {
+
+  }
+
+  &__nav-list {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: center;
+    list-style: none;
+  }
+
+  &__nav-item {
+    margin-bottom: 16px;
+  }
+
+  &__nav-link {
+    color: $color-black;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  //library element
+
+  &__element {
+    margin-bottom: 80px;
+    padding-bottom: 60px;
+    border-bottom: 1px dotted $color-botticelli-library;
+  }
+
+  //element structure
+
+  &__type {
+    width: 100%;
+    table-layout: fixed;
+    margin-bottom: 60px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--no-indent {
+
+      th,
+      td {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+    }
+
+    thead {
+
+      tr {
+
+        &:nth-child(2),
+        &:nth-child(3) {
+          height: 40px;
+
+          th {
+            vertical-align: bottom;
+
+            &:not(.name)::before {
+              top: unset;
+              bottom: 8px;
+              transform: translateY(0);
+            }
+          }
+        }
+      }
+    }
+
+    tbody {
+
+      &.bg-darker {
+
+        &:after {
+          content: '';
+          display: block;
+          height: 40px;
+        }
+
+        &:last-child {
+
+          &:after {
+            display: none;
+          }
+        }
+
+        tr {
+
+          &:last-child {
+
+            td {
+              padding-bottom: 24px !important;
+            }
+          }
+
+          td {
+
+            &:not(.name) {
+              padding-right: 16px;
+              padding-left: 16px;
+              background-color: $color-gray-quaternary;
+            }
+          }
+        }
+      }
+
+      .bg-darker-td {
+        padding-left: 16px;
+        padding-right: 16px;
+        background-color: $color-gray-secondary;
+      }
+
+      .behavior {
+
+        td {
+          padding-top: 60px;
+        }
+      }
+
+      .enlarged-indent-top  {
+
+        td {
+          padding-top: 48px;
+        }
+      }
+
+      tr {
+
+        &:last-child {
+
+          td {
+            padding-bottom: 40px;
+          }
+        }
+      }
+
+      td {
+
+      }
+
+      &:last-child {
+
+        tr {
+
+          &:last-child {
+
+            td {
+              padding-bottom: px-to-rem(10px);
+            }
+          }
+        }
+      }
+    }
+
+    th,
+    td {
+      padding-right: 16px;
+      text-align: left;
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    th {
+      position: relative;
+      overflow: hidden;
+      color: $color-gray-library;
+
+      &:not(.name)::before {
+        position: absolute;
+        top: 50%;
+        left: -16px;
+        z-index: -1;
+        width: 100%;
+        height: 2px;
+        border-bottom: 2px dotted $color-botticelli-library;
+        transform: translateY(-50%);
+        content: "";
+      }
+
+      &:last-child {
+
+        &:not(.name)::before {
+          left: 0;
+        }
+      }
+
+      span,
+      small {
+        padding-right: 8px;
+        font-weight: 600;
+        background-color: $color-white;
+      }
+
+      &.name {
+        width: 250px;
+        color: $color-black;
+        font-size: 24px;
+      }
+    }
+
+    td {
+      padding-top: 24px;
+      vertical-align: top;
+
+      &.name {
+        color: $color-black;
+        font-weight: bold;
+        font-size: 13px;
+        vertical-align: middle;
+      }
+
+      .wrap {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+    }
+  }
+}
+
+
+

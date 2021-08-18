@@ -1,0 +1,415 @@
+// =============================================================================
+// Outline
+// =============================================================================
+
+// Extends
+
+%default {
+  position: relative;
+  min-height: 50px;
+}
+
+%outline {
+  border-width: 3px;
+  border-style: solid;
+}
+
+%outline-dashed {
+  border-style: dashed;
+}
+
+%outline-none {
+  border: 0;
+
+  &::before {
+    display: none;
+  }
+}
+
+%indent-elements {
+  margin-bottom: 2px;
+  padding: 28px 5px 5px 5px !important;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+%mark {
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  z-index: 999;
+  padding: 6px 8px;
+  color: #fff;
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+  line-height: 1;
+}
+
+%outline-container {
+  @extend %color-black;
+}
+
+%outline-row {
+  @extend %color-green;
+}
+
+%outline-col {
+  @extend %color-blue;
+
+  margin-right: 2px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+//outline colors
+%color-red {
+  border-color: red;
+
+  &::before {
+    background-color: red;
+  }
+}
+
+%color-black {
+  border-color: black;
+
+  &::before {
+    background-color: black;
+  }
+}
+
+%color-green {
+  border-color: green;
+
+  &::before {
+    background-color: green;
+  }
+}
+
+%color-blue {
+  border-color: dodgerblue;
+
+  &::before {
+    background-color: dodgerblue;
+  }
+}
+
+%color-dark-blue {
+  border-color: darkblue;
+
+  &::before {
+    background-color: darkblue;
+  }
+}
+
+%color-purple {
+  border-color: purple;
+
+  &::before {
+    background-color: purple;
+  }
+}
+
+%color-orange {
+  border-color: orange;
+
+  &::before {
+    background-color: orange;
+  }
+}
+
+
+// Mixin outline elements
+
+@mixin outline-elements($root, $important: null) {
+
+  @extend %default;
+  @extend %outline;
+  @extend %indent-elements;
+
+  [class*="container"] {
+    @extend %outline-dashed;
+    @extend %outline-container;
+
+    > * {
+      @extend %outline-row;
+
+      > * {
+        @extend %outline-col;
+      }
+    }
+  }
+
+  &::before {
+    @extend %mark;
+
+    content: "#{$root}";
+  }
+}
+
+//
+// Layout
+// --------------------------------------------------------------------------
+
+// Список layout-блоков (компонентов), для которых применяется Outline
+$layoutBlocks: (
+  "layout",
+  "page",
+);
+
+// Список элементов для layout-блоков
+$layoutElements: (
+  "container",
+  "row",
+  "col",
+  "header",
+  "footer",
+  "base",
+  "base-container",
+  "base-wrap",
+  "base-row",
+  "base-col",
+  "add",
+  "headline",
+  "sidebar-primary",
+  "sidebar-secondary",
+  "main",
+  "section",
+  "add",
+  "wrap",
+);
+
+@each $block in $layoutBlocks {
+  .#{$block} {
+    $root: &;
+
+    @include outline-elements($root);
+    @extend %outline-dashed;
+    @extend %color-red;
+
+    @each $el in $layoutElements {
+      &__#{$el} {
+        @include outline-elements(#{$root}__#{$el});
+      }
+
+      &__base {
+        @extend %color-green;
+      }
+
+      &__header,
+      &__footer {
+        @extend %color-orange;
+      }
+
+      &__main {
+        @extend %color-purple;
+      }
+
+      &__add {
+        @extend %color-dark-blue;
+      }
+
+      &__wrap,
+      &__base-wrap {
+        @extend %color-black;
+      }
+
+      &__sidebar-primary,
+      &__sidebar-secondary {
+        @extend %color-blue;
+      }
+    }
+  }
+}
+
+// =============================================================================
+// SimpleComponentsPage
+// =============================================================================
+
+// Список блоков (компонентов), для которых применяется Outline
+//$blocks: (
+//  "layout",
+//  "layout2",
+//);
+
+
+//@each $block in $blocks {
+//  .#{$block} {
+//    $root: &;
+//
+//    @include outline-elements(#{$block});
+//    @extend %outline-dashed;
+//
+//    @each $el in $elements {
+//      &__#{$el} {
+//
+//        @include outline-elements(#{$root}__#{$el});
+//
+//        border-color: red;
+//      }
+//    }
+//  }
+//}
+
+
+//
+//.header__container,
+//.header-fixed__container,
+//.footer__container,
+//.add-primary__container,
+//.add-secondary__container,
+//.preview__container,
+//.about__container,
+//.features__container,
+//.statistics__container,
+//.reviews__container,
+//.news__container,
+//.partners__container,
+//.form__container,
+//.form__row,
+//.form__col {
+//  position: relative;
+//  margin-top: 2px;
+//  margin-bottom: 2px;
+//  padding-top: 30px;
+//  border-style: dashed;
+//  border-width: 3px;
+//}
+//
+//.header__container,
+//.header-fixed__container,
+//.footer__container,
+//.add-primary__container,
+//.add-secondary__container,
+//.preview__container,
+//.about__container,
+//.features__container,
+//.statistics__container,
+//.reviews__container,
+//.news__container,
+//.partners__container,
+//.form__container {
+//  border-color: black;
+//}
+//
+//.form__row {
+//  border-color: purple;
+//}
+//
+//.form__col {
+//  border-color: orange;
+//}
+//
+//.header__container::before,
+//.header-fixed__container::before,
+//.footer__container::before,
+//.add-primary__container::before,
+//.add-secondary__container::before,
+//.preview__container::before,
+//.about__container::before,
+//.features__container::before,
+//.statistics__container::before,
+//.reviews__container::before,
+//.news__container::before,
+//.partners__container::before,
+//.form__container::before,
+//.form__row::before,
+//.form__col::before {
+//  position: absolute;
+//  top: -3px;
+//  left: -3px;
+//  z-index: 999;
+//  padding: 8px 10px;
+//  color: white;
+//  font-size: 12px;
+//  font-family: Arial, sans-serif;
+//  line-height: 1;
+//}
+//
+//.header__container::before,
+//.header-fixed__container::before,
+//.footer__container::before,
+//.add-primary__container::before,
+//.add-secondary__container::before,
+//.preview__container::before,
+//.about__container::before,
+//.features__container::before,
+//.statistics__container::before,
+//.reviews__container::before,
+//.news__container::before,
+//.partners__container::before,
+//.form__container::before {
+//  background-color: black;
+//}
+//
+//.form__row::before {
+//  background-color: purple;
+//}
+//
+//.form__col::before {
+//  background-color: orange;
+//}
+//
+//.header__container::before {
+//  content: "header__container";
+//}
+//
+//.header-fixed__container::before {
+//  content: "header-fixed__container";
+//}
+//
+//.footer__container::before {
+//  content: "footer__container";
+//}
+//
+//.add-primary__container::before {
+//  content: "add-primary__container";
+//}
+//
+//.add-secondary__container::before {
+//  content: "add-secondary__container";
+//}
+//
+//.preview__container::before {
+//  content: "preview__container";
+//}
+//
+//.about__container::before {
+//  content: "about__container";
+//}
+//
+//.features__container::before {
+//  content: "features__container";
+//}
+//
+//.statistics__container::before {
+//  content: "statistics__container";
+//}
+//
+//.reviews__container::before {
+//  content: "reviews__container";
+//}
+//
+//.news__container::before {
+//  content: "news__container";
+//}
+//
+//.partners__container::before {
+//  content: "partners__container";
+//}
+//
+//.form__container::before {
+//  content: "form__container";
+//}
+//
+//.form__row::before {
+//  content: "form__row";
+//}
+//
+//.form__col::before {
+//  content: "form__col";
+//}
