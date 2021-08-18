@@ -1,1 +1,1 @@
-alpha-library
+Template-frontend-library

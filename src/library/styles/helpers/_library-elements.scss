@@ -20,19 +20,82 @@
     margin-bottom: 40px;
   }
 
+  $colors: (
+    "$color-blue-primary": $color-blue-primary,
+    "$color-blue-secondary": $color-blue-secondary,
+    "$color-blue-tertiary": $color-blue-tertiary,
+    "$color-blue-quaternary": $color-blue-quaternary,
+    "$color-blue-quinary": $color-blue-quinary,
+
+    "$color-blue-light-primary": $color-blue-light-primary,
+    "$color-blue-light-secondary": $color-blue-light-secondary,
+    "$color-blue-light-tertiary": $color-blue-light-tertiary,
+    "$color-blue-light-quaternary": $color-blue-light-quaternary,
+    "$color-blue-light-quinary": $color-blue-light-quinary,
+
+    "$color-blue-dark-primary": $color-blue-dark-primary,
+    "$color-blue-dark-secondary": $color-blue-dark-secondary,
+
+    "$color-gray-primary": $color-gray-primary,
+    "$color-gray-secondary": $color-gray-secondary,
+    "$color-gray-tertiary": $color-gray-tertiary,
+    "$color-gray-quaternary": $color-gray-quaternary,
+
+    "$color-orange-primary": $color-orange-primary,
+    "$color-orange-secondary": $color-orange-secondary,
+    "$color-orange-tertiary": $color-orange-tertiary,
+    "$color-orange-quaternary": $color-orange-quaternary,
+    "$color-orange-quinary": $color-orange-quinary,
+
+    "$color-yellow-primary": $color-yellow-primary,
+    "$color-yellow-secondary": $color-yellow-secondary,
+    "$color-yellow-tertiary": $color-yellow-tertiary,
+    "$color-yellow-quaternary": $color-yellow-quaternary,
+    "$color-yellow-quinary": $color-yellow-quinary,
+
+    "$color-green-primary": $color-green-primary,
+    "$color-green-secondary": $color-green-secondary,
+    "$color-green-tertiary": $color-green-tertiary,
+    "$color-green-quaternary": $color-green-quaternary,
+    "$color-green-quinary": $color-green-quinary,
+
+    "$color-azure-primary": $color-azure-primary,
+    "$color-azure-secondary": $color-azure-secondary,
+    "$color-azure-tertiary": $color-azure-tertiary,
+    "$color-azure-quaternary": $color-azure-quaternary,
+    "$color-azure-quinary": $color-azure-quinary,
+
+    "$color-velvet-primary": $color-velvet-primary,
+    "$color-velvet-secondary": $color-velvet-secondary,
+    "$color-velvet-tertiary": $color-velvet-tertiary,
+    "$color-velvet-quaternary": $color-velvet-quaternary,
+    "$color-velvet-quinary": $color-velvet-quinary,
+
+    "$color-red-primary": $color-red-primary,
+    "$color-red-secondary": $color-red-secondary,
+    "$color-red-tertiary": $color-red-tertiary,
+    "$color-red-quaternary": $color-red-quaternary,
+    "$color-red-quinary": $color-red-quinary,
+
+    "$color-white": $color-white,
+    "$color-black": $color-black,
+  );
+
   .color {
     $root: '.color';
 
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 14px;
+    font-weight: 500;
 
     &__bg {
       position: relative;
       display: block;
       width: 64px;
       height: 64px;
-      margin-bottom: 28px;
+      margin-bottom: 40px;
       font-weight: 400;
       border: 1px solid $color-botticelli-library;
       border-radius: 50%;
@@ -46,572 +109,22 @@
       }
     }
 
-    &__name {
-      font-size: 14px;
-      font-weight: 500;
-    }
+    @each $key, $color in $colors {
+      &[data-color="#{$key}"] {
 
-    /*Brand Scale > blue*/
-
-    &[data-color="$color-blue-primary"] {
-
-      #{$root}__bg {
-        background-color: $color-blue-primary;
+        #{$root}__bg {
+          background-color: $color;
+  
+          &:after {
+            content: "#{$color}";
+          }
+        }
 
         &:after {
-          content: "#{$color-blue-primary}";
+          content: "#{$key}";
         }
       }
     }
-
-    &[data-color="$color-blue-secondary"] {
-
-      #{$root}__bg {
-        background-color: $color-blue-secondary;
-
-        &:after {
-          content: "#{$color-blue-secondary}";
-        }
-      }
-    }
-
-    &[data-color="$color-blue-tertiary"] {
-
-      #{$root}__bg {
-        background-color: $color-blue-tertiary;
-
-        &:after {
-          content: "#{$color-blue-tertiary}";
-        }
-      }
-    }
-
-    &[data-color="$color-blue-quaternary"] {
-
-      #{$root}__bg {
-        background-color: $color-blue-quaternary;
-
-        &:after {
-          content: "#{$color-blue-quaternary}";
-        }
-      }
-    }
-
-    &[data-color="$color-blue-quinary"] {
-
-      #{$root}__bg {
-        background-color: $color-blue-quinary;
-
-        &:after {
-          content: "#{$color-blue-quinary}";
-        }
-      }
-    }
-
-    &[data-color="$color-blue-senary"] {
-
-      #{$root}__bg {
-        background-color: $color-blue-senary;
-
-        &:after {
-          content: "#{$color-blue-senary}";
-        }
-      }
-    }
-
-    /*Brand Scale > blue-light*/
-
-    &[data-color="$color-blue-light-primary"] {
-
-      #{$root}__bg {
-        background-color: $color-blue-light-primary;
-
-        &:after {
-          content: "#{$color-blue-light-primary}";
-        }
-      }
-    }
-
-    &[data-color="$color-blue-light-secondary"] {
-
-      #{$root}__bg {
-        background-color: $color-blue-light-secondary;
-
-        &:after {
-          content: "#{$color-blue-light-secondary}";
-        }
-      }
-    }
-
-    &[data-color="$color-blue-light-tertiary"] {
-
-      #{$root}__bg {
-        background-color: $color-blue-light-tertiary;
-
-        &:after {
-          content: "#{$color-blue-light-tertiary}";
-        }
-      }
-    }
-
-    &[data-color="$color-blue-light-quaternary"] {
-
-      #{$root}__bg {
-        background-color: $color-blue-light-quaternary;
-
-        &:after {
-          content: "#{$color-blue-light-quaternary}";
-        }
-      }
-    }
-
-    &[data-color="$color-blue-light-quinary"] {
-
-      #{$root}__bg {
-        background-color: $color-blue-light-quinary;
-
-        &:after {
-          content: "#{$color-blue-light-quinary}";
-        }
-      }
-    }
-
-    /*Brand Scale > blue-dark*/
-
-    &[data-color="$color-blue-dark-primary"] {
-
-      #{$root}__bg {
-        background-color: $color-blue-dark-primary;
-
-        &:after {
-          content: "#{$color-blue-dark-primary}";
-        }
-      }
-    }
-
-    &[data-color="$color-blue-dark-secondary"] {
-
-      #{$root}__bg {
-        background-color: $color-blue-dark-secondary;
-
-        &:after {
-          content: "#{$color-blue-dark-secondary}";
-        }
-      }
-    }
-
-    /*Gray Scale*/
-
-    &[data-color="$color-gray-primary"] {
-
-      #{$root}__bg {
-        background-color: $color-gray-primary;
-
-        &:after {
-          content: "#{$color-gray-primary}";
-        }
-      }
-    }
-
-    &[data-color="$color-gray-secondary"] {
-
-      #{$root}__bg {
-        background-color: $color-gray-secondary;
-
-        &:after {
-          content: "#{$color-gray-secondary}";
-        }
-      }
-    }
-
-    &[data-color="$color-gray-tertiary"] {
-
-      #{$root}__bg {
-        background-color: $color-gray-tertiary;
-
-        &:after {
-          content: "#{$color-gray-tertiary}";
-        }
-      }
-    }
-
-    &[data-color="$color-gray-quaternary"] {
-
-      #{$root}__bg {
-        background-color: $color-gray-quaternary;
-
-        &:after {
-          content: "#{$color-gray-quaternary}";
-        }
-      }
-    }
-
-    /*Additional Scale > orange */
-
-    &[data-color="$color-orange-primary"] {
-
-      #{$root}__bg {
-        background-color: $color-orange-primary;
-
-        &:after {
-          content: "#{$color-orange-primary}";
-        }
-      }
-    }
-
-    &[data-color="$color-orange-secondary"] {
-
-      #{$root}__bg {
-        background-color: $color-orange-secondary;
-
-        &:after {
-          content: "#{$color-orange-secondary}";
-        }
-      }
-    }
-
-    &[data-color="$color-orange-tertiary"] {
-
-      #{$root}__bg {
-        background-color: $color-orange-tertiary;
-
-        &:after {
-          content: "#{$color-orange-tertiary}";
-        }
-      }
-    }
-
-    &[data-color="$color-orange-quaternary"] {
-
-      #{$root}__bg {
-        background-color: $color-orange-quaternary;
-
-        &:after {
-          content: "#{$color-orange-quaternary}";
-        }
-      }
-    }
-
-    &[data-color="$color-orange-quinary"] {
-
-      #{$root}__bg {
-        background-color: $color-orange-quinary;
-
-        &:after {
-          content: "#{$color-orange-quinary}";
-        }
-      }
-    }
-
-    /*Additional Scale > yellow */
-
-    &[data-color="$color-yellow-primary"] {
-
-      #{$root}__bg {
-        background-color: $color-yellow-primary;
-
-        &:after {
-          content: "#{$color-yellow-primary}";
-        }
-      }
-    }
-
-    &[data-color="$color-yellow-secondary"] {
-
-      #{$root}__bg {
-        background-color: $color-yellow-secondary;
-
-        &:after {
-          content: "#{$color-yellow-secondary}";
-        }
-      }
-    }
-
-    &[data-color="$color-yellow-tertiary"] {
-
-      #{$root}__bg {
-        background-color: $color-yellow-tertiary;
-
-        &:after {
-          content: "#{$color-yellow-tertiary}";
-        }
-      }
-    }
-
-    &[data-color="$color-yellow-quaternary"] {
-
-      #{$root}__bg {
-        background-color: $color-yellow-quaternary;
-
-        &:after {
-          content: "#{$color-yellow-quaternary}";
-        }
-      }
-    }
-
-    &[data-color="$color-yellow-quinary"] {
-
-      #{$root}__bg {
-        background-color: $color-yellow-quinary;
-
-        &:after {
-          content: "#{$color-yellow-quinary}";
-        }
-      }
-    }
-
-    /*Additional Scale > green */
-
-    &[data-color="$color-green-primary"] {
-
-      #{$root}__bg {
-        background-color: $color-green-primary;
-
-        &:after {
-          content: "#{$color-green-primary}";
-        }
-      }
-    }
-
-    &[data-color="$color-green-secondary"] {
-
-      #{$root}__bg {
-        background-color: $color-green-secondary;
-
-        &:after {
-          content: "#{$color-green-secondary}";
-        }
-      }
-    }
-
-    &[data-color="$color-green-tertiary"] {
-
-      #{$root}__bg {
-        background-color: $color-green-tertiary;
-
-        &:after {
-          content: "#{$color-green-tertiary}";
-        }
-      }
-    }
-
-    &[data-color="$color-green-quaternary"] {
-
-      #{$root}__bg {
-        background-color: $color-green-quaternary;
-
-        &:after {
-          content: "#{$color-green-quaternary}";
-        }
-      }
-    }
-
-    &[data-color="$color-green-quinary"] {
-
-      #{$root}__bg {
-        background-color: $color-green-quinary;
-
-        &:after {
-          content: "#{$color-green-quinary}";
-        }
-      }
-    }
-
-    /*Additional Scale > azure */
-
-    &[data-color="$color-azure-primary"] {
-
-      #{$root}__bg {
-        background-color: $color-azure-primary;
-
-        &:after {
-          content: "#{$color-azure-primary}";
-        }
-      }
-    }
-
-    &[data-color="$color-azure-secondary"] {
-
-      #{$root}__bg {
-        background-color: $color-azure-secondary;
-
-        &:after {
-          content: "#{$color-azure-secondary}";
-        }
-      }
-    }
-
-    &[data-color="$color-azure-tertiary"] {
-
-      #{$root}__bg {
-        background-color: $color-azure-tertiary;
-
-        &:after {
-          content: "#{$color-azure-tertiary}";
-        }
-      }
-    }
-
-    &[data-color="$color-azure-quaternary"] {
-
-      #{$root}__bg {
-        background-color: $color-azure-quaternary;
-
-        &:after {
-          content: "#{$color-azure-quaternary}";
-        }
-      }
-    }
-
-    &[data-color="$color-azure-quinary"] {
-
-      #{$root}__bg {
-        background-color: $color-azure-quinary;
-
-        &:after {
-          content: "#{$color-azure-quinary}";
-        }
-      }
-    }
-
-    /*Additional Scale > velvet */
-
-    &[data-color="$color-velvet-primary"] {
-
-      #{$root}__bg {
-        background-color: $color-velvet-primary;
-
-        &:after {
-          content: "#{$color-velvet-primary}";
-        }
-      }
-    }
-
-    &[data-color="$color-velvet-secondary"] {
-
-      #{$root}__bg {
-        background-color: $color-velvet-secondary;
-
-        &:after {
-          content: "#{$color-velvet-secondary}";
-        }
-      }
-    }
-
-    &[data-color="$color-velvet-tertiary"] {
-
-      #{$root}__bg {
-        background-color: $color-velvet-tertiary;
-
-        &:after {
-          content: "#{$color-velvet-tertiary}";
-        }
-      }
-    }
-
-    &[data-color="$color-velvet-quaternary"] {
-
-      #{$root}__bg {
-        background-color: $color-velvet-quaternary;
-
-        &:after {
-          content: "#{$color-velvet-quaternary}";
-        }
-      }
-    }
-
-    &[data-color="$color-velvet-quinary"] {
-
-      #{$root}__bg {
-        background-color: $color-velvet-quinary;
-
-        &:after {
-          content: "#{$color-velvet-quinary}";
-        }
-      }
-    }
-
-    /*Additional Scale > red */
-
-    &[data-color="$color-red-primary"] {
-
-      #{$root}__bg {
-        background-color: $color-red-primary;
-
-        &:after {
-          content: "#{$color-red-primary}";
-        }
-      }
-    }
-
-    &[data-color="$color-red-secondary"] {
-
-      #{$root}__bg {
-        background-color: $color-red-secondary;
-
-        &:after {
-          content: "#{$color-red-secondary}";
-        }
-      }
-    }
-
-    &[data-color="$color-red-tertiary"] {
-
-      #{$root}__bg {
-        background-color: $color-red-tertiary;
-
-        &:after {
-          content: "#{$color-red-tertiary}";
-        }
-      }
-    }
-
-    &[data-color="$color-red-quaternary"] {
-
-      #{$root}__bg {
-        background-color: $color-red-quaternary;
-
-        &:after {
-          content: "#{$color-red-quaternary}";
-        }
-      }
-    }
-
-    &[data-color="$color-red-quinary"] {
-
-      #{$root}__bg {
-        background-color: $color-red-quinary;
-
-        &:after {
-          content: "#{$color-red-quinary}";
-        }
-      }
-    }
-
-    /*Default*/
-
-    &[data-color="$color-white"] {
-
-      #{$root}__bg {
-        background-color: $color-white;
-
-        &:after {
-          content: "#{$color-white}";
-        }
-      }
-    }
-
-    &[data-color="$color-black"] {
-
-      #{$root}__bg {
-        background-color: $color-black;
-
-        &:after {
-          content: "#{$color-black}";
-        }
-      }
-    }
-
   }
 }
 
