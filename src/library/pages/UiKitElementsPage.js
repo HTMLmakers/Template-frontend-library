@@ -33,31 +33,31 @@ const UiKitElementsPage = () => {
       </header>
       <div className="components-library__main">
 
-        <ColorsPartial /> {/*+++++++*/}
+        <ColorsPartial />
 
-        <TextsPartial /> {/*+++++++*/}
+        <TextsPartial />
 
-        <IconsPartial /> {/*+++++++*/}
+        <IconsPartial />
 
-        <IconWrapsPartial /> {/*+++++++*/}
+        <IconWrapsPartial />
 
-        <MarksPartial /> {/*+++++++*/}
+        <MarksPartial />
 
-        <ButtonsPartial /> {/*+++++++*/}
+        <ButtonsPartial />
 
-        <InfoTagsPartial /> {/*+++++++*/}
+        <InfoTagsPartial />
 
-        <LinksPartial /> {/*+++++++*/}
+        <LinksPartial />
 
-        <DropDownsPartial /> {/*+++++++*/}
+        <DropDownsPartial />
 
-        <NotificationsPartial /> {/*+++++++*/}
+        <NotificationsPartial />
 
-        <TooltipsPartial /> {/*+++++++*/}
+        <TooltipsPartial />
 
-        <ScrollsPartial /> {/*+++++++*/}
+        <ScrollsPartial />
 
-        <WrapPartial />{/*+++++++*/}
+        <WrapPartial />
 
         <PopupsPartial/>
 
@@ -72,15 +72,6 @@ const UiKitElementsPage = () => {
         <UploadFiles/>
 
         <Sliders/>
-
-
-
-
-
-
-
-
-
 
       </div>
     </div>
